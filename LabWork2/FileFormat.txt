@@ -1,0 +1,6 @@
+Формат файла DATA.tiny: 1-й столбец, 2-й столбец, 3-й столбец, 4-й столбец:
+
+1) the job name
+2) start time, in 1/100 second since midnight
+3) cpu time required (in seconds, as a float)
+4) io count in bytes
