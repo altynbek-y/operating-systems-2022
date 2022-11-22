@@ -341,7 +341,7 @@ public class Simulator {
     }
 
     /** Flag to control the verbosity of debugging output. */
-    public static int verbosity = 0; // higher values generate more output
+    public static int verbosity = 3 ; // higher values generate more output
     public static void moreVerbose() { verbosity++; }
 
     /** Trace flag: */

@@ -26,7 +26,6 @@ public class SJFScheduler extends Scheduler {
             queue = new ArrayList<>();
         }
         queue.add(j);
-        queue.sort(Comparator.comparingInt(o -> o.burst));   // Sort list of jobs
         queueChanged(1);    // update queue-length statistics
         return false;       // SJFS scheduler only preempts on clock interrupts
     }
@@ -37,12 +36,16 @@ public class SJFScheduler extends Scheduler {
     public Job remove() {
         if (queue == null || queue.size() == 0)
             return null;
-        Job result = queue.get(0);
-        if(result!=null) {
-            result.burst -= Math.min(result.burst, Simulator.QUANTUM);
-            queue.remove(0);
-            queueChanged(-1);   // update queue-length statistics
+        int minBurst = Integer.MAX_VALUE;
+        Job result = null;
+        for(Job process : queue) {
+            if(process.burst < minBurst) {
+                minBurst = process.burst;
+                result = process;
+            }
         }
+        queue.remove(result);
+        queueChanged(-1);   // update queue-length statistics
         return result;
     }
 

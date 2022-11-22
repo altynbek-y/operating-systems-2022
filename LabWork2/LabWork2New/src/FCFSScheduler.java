@@ -14,8 +14,6 @@ public class FCFSScheduler extends Scheduler {
      ** If the queue is empty, head = null and the value of tail is undefined.
      **/
     private Queue<Job> queue = null;
-    private Job head = null;
-    private Job tail;
 
     /** Add a new job wanting service.
      ** The second argument is the amount of time remaining before the

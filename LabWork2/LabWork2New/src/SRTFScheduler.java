@@ -42,9 +42,7 @@ public class SRTFScheduler extends Scheduler {
             }
         }
         if(result != null) {
-            result.burst -= Math.min(result.burst, Simulator.QUANTUM);
-            if(result.burst==0)
-                result.finish();
+            // result.burst -= Math.min(result.burst, Simulator.QUANTUM);
             queue.remove(result);
             queueChanged(-1);   // update queue-length statistics
         }
