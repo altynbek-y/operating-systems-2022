@@ -49,7 +49,7 @@ public class FCFSScheduler extends Scheduler {
      ** is some other job to run).
      **/
     public boolean reschedule(Job job) {
-        return (queue != null);
+        return false;
     }
 
     /** For debugging: print the queue of waiting jobs */
